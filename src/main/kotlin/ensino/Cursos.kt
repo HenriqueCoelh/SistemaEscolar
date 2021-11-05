@@ -1,13 +1,18 @@
-class Cursos(nomeDoCurso: String?,
-             nomeDoProfessor: String?,
-             ano: Int) {
+package ensino
+
+import aluno.Estudante
+import java.lang.Exception
+
+class Cursos(private var nomeDoCurso: String?,
+             private var nomeDoProfessor: String?,
+             private var ano: Int) {
 
     // '?' considera os valores nulos
-    val listaEstudante = mutableListOf<Estudante?>()
+    private val listaEstudante = mutableListOf<Estudante?>()
 
     fun matricular(estudante: Estudante?){
         listaEstudante.add(estudante)
-        println("Estudante matriculado com sucesso!")
+        println("aluno.Estudante matriculado com sucesso!")
     }
     fun matricular(estudantes: Array<Estudante?>?){
         if (estudantes != null){
@@ -21,7 +26,7 @@ class Cursos(nomeDoCurso: String?,
     fun desmatricular(estudante: Estudante){
         if(listaEstudante.contains(estudante)){
             listaEstudante.remove(estudante)
-            println("Estudante desmatriculado com sucesso!")
+            println("aluno.Estudante desmatriculado com sucesso!")
         }else{
             println("Esse estudante não existe na lista.")
         }
@@ -44,4 +49,16 @@ class Cursos(nomeDoCurso: String?,
         println("A maior nota desse curso é: $melhorNota")
     }
 
+    fun verificarAluno(estudante: Estudante?){
+        if(listaEstudante.contains(estudante)){
+            println("Esse estudante existe!")
+        }else{
+            //Criamos uma excessão personalizada
+            throw Exception ("O aluno não existe na lista")
+        }
+    }
+
 }
+
+
+

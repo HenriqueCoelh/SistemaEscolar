@@ -1,9 +1,12 @@
+package aluno
+
+//Encapsulamento de dados
 class Estudante (var nome: String?,
-                 var sobrenome: String?,
-                 var ra: Int) {
+                 private var sobrenome: String?,
+                 private var ra: Int) {
 
     var nota = 0.0
-    var ano = 0
+    private var ano = 0
 
     constructor(nome: String?, sobrenome: String?,
                 ra: Int, nota: Double): this(nome, sobrenome, ra){
@@ -34,5 +37,6 @@ class Estudante (var nome: String?,
             println("Você foi reprovado! Não passará de ano.")
         }
     }
+
 
 }
